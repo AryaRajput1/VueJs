@@ -1,2 +1,76 @@
-# what is vuejs
-Vue (pronounced /vjuː/, like view) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative, component-based programming model that helps you efficiently develop user interfaces of any complexity.
+#### What is Vue Instance 
+- A Vue instance is the core of any Vue application. It is created by calling the Vue constructor and serves as the starting point for managing the data, DOM, and lifecycle of a Vue app. Below is an example of creating a Vue instance:
+
+```
+// Import Vue (if using module bundlers)
+import Vue from 'vue';
+
+// Creating a Vue instance
+const vm = new Vue({
+  // The DOM element to mount the Vue instance
+  el: '#app',
+
+  // Data: The model for your app
+  data: {
+    message: 'Hello, Vue!'
+  },
+
+  // Methods: Functions to handle user interactions or logic
+  methods: {
+    greet() {
+      alert(this.message);
+    }
+  },
+
+  // Computed properties: Derived data that updates automatically
+  computed: {
+    reversedMessage() {
+      return this.message.split('').reverse().join('');
+    }
+  },
+
+  // Watchers: To perform actions when data changes
+  watch: {
+    message(newValue, oldValue) {
+      console.log(`Message changed from "${oldValue}" to "${newValue}"`);
+    }
+  },
+
+  // Lifecycle hooks: To manage app lifecycle stages
+  created() {
+    console.log('Vue instance created!');
+  }
+});
+```
+
+Key Options in a Vue Instance:
+
+1. el: Specifies the DOM element where the Vue instance will be mounted.
+
+
+2. data: Defines the reactive data used in the app.
+
+
+3. methods: Contains functions for event handling and app logic.
+
+
+4. computed: Provides reactive computed properties based on data.
+
+
+5. watch: Monitors changes in data and performs actions.
+
+
+6. Lifecycle hooks: Special functions that run during the instance lifecycle, such as created, mounted, updated, and destroyed.
+
+
+
+Example HTML:
+
+<div id="app">
+  <p>{{ message }}</p>
+  <p>Reversed: {{ reversedMessage }}</p>
+  <button @click="greet">Click me</button>
+</div>
+
+This basic structure demonstrates the power of Vue's declarative approach to building user interfaces.
+
